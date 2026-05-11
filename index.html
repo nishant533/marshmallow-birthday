@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Marshmallow ♡</title>
+<meta name="description" content="A birthday site for Kripa. Click around — there's a lot of you in here.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💗%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ============================================
+     MARSHMALLOW HEART LOADER
+     ============================================ -->
+<div class="loader-screen" id="loader">
+  <div class="loader-tagline">calibrating marshmallow levels…</div>
+  <div class="loader-heart">
+    <svg viewBox="0 0 200 200" id="heart-shape">
+      <defs>
+        <clipPath id="heart-fill-clip">
+          <path d="M100,180 C100,180 20,130 20,75 A40,40 0 0,1 100,55 A40,40 0 0,1 180,75 C180,130 100,180 100,180 Z"/>
+        </clipPath>
+      </defs>
+
+      <!-- Heart outline -->
+      <path d="M100,180 C100,180 20,130 20,75 A40,40 0 0,1 100,55 A40,40 0 0,1 180,75 C180,130 100,180 100,180 Z"
+            fill="#fffdf6" stroke="#1c1612" stroke-width="4"/>
+
+      <!-- Marshmallows clipped inside the heart -->
+      <g clip-path="url(#heart-fill-clip)">
+        <rect id="fill-rect" x="0" y="200" width="200" height="200" fill="#ffd6e8"/>
+        <g id="marsh-blobs"></g>
+      </g>
+
+      <!-- Heart outline on top so blobs don't overflow visually -->
+      <path d="M100,180 C100,180 20,130 20,75 A40,40 0 0,1 100,55 A40,40 0 0,1 180,75 C180,130 100,180 100,180 Z"
+            fill="none" stroke="#1c1612" stroke-width="4"/>
+
+      <!-- Highlight glint -->
+      <ellipse cx="55" cy="80" rx="14" ry="8" fill="#fff" opacity="0.5" transform="rotate(-30 55 80)"/>
+    </svg>
+  </div>
+  <div class="loader-counter" id="loader-counter">0%</div>
+</div>
+
+
+<!-- ============================================
+     TOP NAV
+     ============================================ -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-home">♡ MARSHMALLOW</a>
+  <div class="nav-pages">
+    <a href="origin.html">Origin</a>
+    <a href="stats.html">Numbers</a>
+    <a href="moods.html">Moods</a>
+    <a href="soundtrack.html">Soundtrack</a>
+    <a href="letter.html">Letter</a>
+  </div>
+</nav>
+
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<main class="hero">
+
+  <!-- Decorative tape and sparkles -->
+  <div class="tape tilt-l" style="top: 70px; left: 10%;"></div>
+  <div class="tape pink tilt-r" style="top: 90px; right: 12%;"></div>
+  <div class="sparkle" style="top: 12%; left: 20%; color: var(--hot-pink);">✦</div>
+  <div class="sparkle" style="top: 18%; right: 18%; color: var(--electric); animation-delay: 1s;">✧</div>
+  <div class="sparkle" style="bottom: 25%; left: 8%; color: var(--sun); animation-delay: 0.5s;">✦</div>
+  <div class="sparkle" style="bottom: 30%; right: 9%; color: var(--hot-pink); animation-delay: 1.5s;">✧</div>
+
+  <!-- Decorative scattered polaroids (placeholders — drop photos in /images/hero/) -->
+  <div class="polaroid hero-polaroid">
+    <img src="images/hero/photo1.jpg" alt="" onerror="this.outerHTML='<div class=photo-placeholder>her at her favourite cafe</div>'">
+    <span class="caption">favourite human</span>
+  </div>
+  <div class="polaroid hero-polaroid">
+    <img src="images/hero/photo2.jpg" alt="" onerror="this.outerHTML='<div class=photo-placeholder>laughing too loud somewhere</div>'">
+    <span class="caption">that laugh</span>
+  </div>
+  <div class="polaroid hero-polaroid">
+    <img src="images/hero/photo3.jpg" alt="" onerror="this.outerHTML='<div class=photo-placeholder>travel pic — pondicherry maybe</div>'">
+    <span class="caption">pondi era</span>
+  </div>
+  <div class="polaroid hero-polaroid">
+    <img src="images/hero/photo4.jpg" alt="" onerror="this.outerHTML='<div class=photo-placeholder>any candid shot you love</div>'">
+    <span class="caption">my person</span>
+  </div>
+
+  <!-- Greeting -->
+  <div class="hero-greeting fade-in">
+    <span class="small-line">happy birthday,</span>
+    <h1>marshmallow!<span class="age-badge">29</span></h1>
+    <p class="sub">a love letter, in six pages</p>
+  </div>
+
+  <!-- Caricature stage with clickable zones -->
+  <div class="caricature-stage fade-in" style="animation-delay: 0.4s;">
+
+    <!-- Floating labels (positioned near their respective elements) -->
+    <div id="label-eiffel"    class="zone-label electric"  style="top: 22%; left: 8%;">🗼 BY THE NUMBERS</div>
+    <div id="label-owl"       class="zone-label hot-pink"  style="top: 42%; right: 4%;">🦉 ORIGIN STORY</div>
+    <div id="label-heart"     class="zone-label hot-pink"  style="top: 55%; left: 6%;">💗 THE LETTER</div>
+    <div id="label-sunflower" class="zone-label sun"       style="bottom: 22%; right: 4%;">🌻 MOODS</div>
+    <div id="label-piano"     class="zone-label mint"      style="bottom: 0%; left: 50%; transform: translateX(-50%);">🎹 SOUNDTRACK</div>
+
+    <!-- The caricature SVG -->
+    <svg class="caricature" viewBox="0 0 600 720" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Soft background aura -->
+      <ellipse cx="300" cy="380" rx="280" ry="320" fill="#ffd449" opacity="0.18"/>
+
+      <!-- ===== HAIR (BACK LAYER) — one big flowing mass behind head & shoulders ===== -->
+      <path d="M 200,130
+               Q 180,95 240,82
+               Q 300,72 360,82
+               Q 420,95 400,130
+               Q 430,160 438,220
+               Q 446,290 442,360
+               Q 438,430 420,490
+               Q 408,525 392,545
+               Q 372,560 348,560
+               L 252,560
+               Q 228,560 208,545
+               Q 192,525 180,490
+               Q 162,430 158,360
+               Q 154,290 162,220
+               Q 170,160 200,130 Z"
+            fill="#2a1f1a"/>
+
+      <!-- Wavy hair texture lines for movement -->
+      <g stroke="#1a0f0a" stroke-width="1.5" fill="none" opacity="0.5">
+        <path d="M 175,300 Q 165,360 175,420 Q 168,480 180,520"/>
+        <path d="M 425,300 Q 435,360 425,420 Q 432,480 420,520"/>
+        <path d="M 195,250 Q 188,310 196,370"/>
+        <path d="M 405,250 Q 412,310 404,370"/>
+      </g>
+
+      <!-- ===== NECK ===== -->
+      <path d="M 270,275 L 270,330 L 330,330 L 330,275 Z"
+            fill="#c89479" stroke="#1c1612" stroke-width="2.5"/>
+      <!-- collar shadow -->
+      <ellipse cx="300" cy="320" rx="35" ry="6" fill="#a87657" opacity="0.4"/>
+
+      <!-- ===== TORSO + TANK TOP ===== -->
+      <!-- skin under tank (chest area visible) -->
+      <path d="M 220,330
+               Q 220,340 235,345
+               L 250,355
+               Q 280,365 300,360
+               Q 320,365 350,355
+               L 365,345
+               Q 380,340 380,330
+               Z"
+            fill="#c89479"/>
+
+      <!-- tank top -->
+      <path d="M 240,338
+               Q 235,360 240,400
+               C 240,470 250,540 260,570
+               L 340,570
+               C 350,540 360,470 360,400
+               Q 365,360 360,338
+               L 340,335
+               Q 320,355 300,355
+               Q 280,355 260,335
+               Z"
+            fill="#1c1612" stroke="#1c1612" stroke-width="2"/>
+
+      <!-- tank straps -->
+      <line x1="265" y1="290" x2="258" y2="338" stroke="#1c1612" stroke-width="4" stroke-linecap="round"/>
+      <line x1="335" y1="290" x2="342" y2="338" stroke="#1c1612" stroke-width="4" stroke-linecap="round"/>
+
+      <!-- ===== ARMS ===== -->
+      <!-- her right arm (viewer's left) — extends to piano -->
+      <path d="M 240,360
+               Q 200,380 175,430
+               C 160,470 155,520 165,560
+               L 190,580
+               Q 210,560 215,520
+               C 220,470 230,420 250,390 Z"
+            fill="#c89479" stroke="#1c1612" stroke-width="2.5"/>
+
+      <!-- her left arm (viewer's right) — extends to piano -->
+      <path d="M 360,360
+               Q 400,380 425,430
+               C 440,470 445,520 435,560
+               L 410,580
+               Q 390,560 385,520
+               C 380,470 370,420 350,390 Z"
+            fill="#c89479" stroke="#1c1612" stroke-width="2.5"/>
+
+      <!-- ===== HEAD ===== -->
+      <!-- face -->
+      <ellipse cx="300" cy="210" rx="92" ry="105" fill="#dba47e" stroke="#1c1612" stroke-width="3"/>
+
+      <!-- ears -->
+      <ellipse cx="208" cy="220" rx="12" ry="18" fill="#c89479" stroke="#1c1612" stroke-width="2.5"/>
+      <ellipse cx="392" cy="220" rx="12" ry="18" fill="#c89479" stroke="#1c1612" stroke-width="2.5"/>
+
+      <!-- earring -->
+      <circle cx="392" cy="240" r="6" fill="#4d6dff" stroke="#1c1612" stroke-width="1.5"/>
+      <circle cx="208" cy="240" r="6" fill="#4d6dff" stroke="#1c1612" stroke-width="1.5"/>
+
+      <!-- ===== HAIR (FRONT LAYER) — frames the face ===== -->
+      <path d="M 208,140
+               Q 200,100 240,90
+               Q 280,75 300,80
+               Q 320,75 360,90
+               Q 400,100 392,140
+               Q 405,170 410,210
+               L 405,260
+               Q 395,200 380,170
+               Q 370,150 355,145
+               Q 340,140 330,150
+               L 320,165
+               Q 305,155 300,160
+               Q 295,155 280,165
+               L 270,150
+               Q 260,140 245,145
+               Q 230,150 220,170
+               Q 205,200 195,260
+               L 190,210
+               Q 195,170 208,140 Z"
+            fill="#2a1f1a"/>
+
+      <!-- Wavy hair pieces falling on shoulders -->
+      <path d="M 195,260 Q 175,310 180,380 Q 200,330 210,290 Z" fill="#2a1f1a"/>
+      <path d="M 405,260 Q 425,310 420,380 Q 400,330 390,290 Z" fill="#2a1f1a"/>
+
+      <!-- ===== FACE FEATURES ===== -->
+      <!-- eyebrows -->
+      <path d="M 245,180 Q 260,170 285,178" stroke="#1c1612" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M 315,178 Q 340,170 355,180" stroke="#1c1612" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+      <!-- eyes (smiling/happy) -->
+      <path d="M 250,210 Q 263,222 278,210" stroke="#1c1612" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M 322,210 Q 335,222 350,210" stroke="#1c1612" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+      <!-- little eyelashes -->
+      <line x1="251" y1="208" x2="248" y2="203" stroke="#1c1612" stroke-width="2" stroke-linecap="round"/>
+      <line x1="277" y1="208" x2="280" y2="203" stroke="#1c1612" stroke-width="2" stroke-linecap="round"/>
+      <line x1="323" y1="208" x2="320" y2="203" stroke="#1c1612" stroke-width="2" stroke-linecap="round"/>
+      <line x1="349" y1="208" x2="352" y2="203" stroke="#1c1612" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- nose -->
+      <path d="M 298,225 Q 295,245 298,255 Q 302,258 305,255 Q 305,245 302,225"
+            stroke="#1c1612" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+      <!-- mouth (big smile with teeth) -->
+      <path d="M 265,265 Q 300,295 335,265 Q 320,278 300,278 Q 280,278 265,265 Z"
+            fill="#1c1612"/>
+      <path d="M 273,272 L 327,272" stroke="#fffdf6" stroke-width="3"/>
+
+      <!-- cheek blush -->
+      <ellipse cx="240" cy="245" rx="14" ry="8" fill="#ff7aa8" opacity="0.4"/>
+      <ellipse cx="360" cy="245" rx="14" ry="8" fill="#ff7aa8" opacity="0.4"/>
+
+
+      <!-- ============================================
+           ===== TATTOOS (CLICKABLE NAV ZONES) =====
+           ============================================ -->
+
+      <!-- 🗼 EIFFEL TOWER on her right collarbone (viewer's left) → STATS -->
+      <a href="stats.html">
+        <g class="cari-zone" data-label="label-eiffel">
+          <!-- invisible larger hit area -->
+          <circle cx="265" cy="345" r="22" fill="transparent"/>
+          <!-- Eiffel tower outline -->
+          <g transform="translate(258, 332) scale(0.7)" stroke="#1c1612" stroke-width="1.5" fill="none">
+            <path d="M 10,0 L 6,6 L 14,6 Z"/>
+            <line x1="6" y1="6" x2="3" y2="20"/>
+            <line x1="14" y1="6" x2="17" y2="20"/>
+            <line x1="3" y1="20" x2="0" y2="34"/>
+            <line x1="17" y1="20" x2="20" y2="34"/>
+            <line x1="2" y1="14" x2="18" y2="14"/>
+            <line x1="0" y1="34" x2="20" y2="34"/>
+            <line x1="-2" y1="38" x2="22" y2="38"/>
+          </g>
+        </g>
+      </a>
+
+      <!-- 🦉 OWL on her left bicep (viewer's right) → ORIGIN STORY -->
+      <a href="origin.html">
+        <g class="cari-zone" data-label="label-owl">
+          <circle cx="395" cy="430" r="28" fill="transparent"/>
+          <g transform="translate(378, 412)" stroke="#1c1612" stroke-width="1.6" fill="none">
+            <!-- owl body -->
+            <path d="M 18,4 Q 4,8 4,22 Q 4,34 18,38 Q 32,34 32,22 Q 32,8 18,4 Z"/>
+            <!-- ear tufts -->
+            <path d="M 8,8 L 6,2 L 12,6"/>
+            <path d="M 28,8 L 30,2 L 24,6"/>
+            <!-- eyes (big owl eyes) -->
+            <circle cx="13" cy="18" r="3.5"/>
+            <circle cx="13" cy="18" r="1.2" fill="#1c1612"/>
+            <circle cx="23" cy="18" r="3.5"/>
+            <circle cx="23" cy="18" r="1.2" fill="#1c1612"/>
+            <!-- beak -->
+            <path d="M 18,22 L 16,26 L 20,26 Z"/>
+            <!-- belly feather lines -->
+            <path d="M 12,30 Q 14,32 16,30"/>
+            <path d="M 16,30 Q 18,32 20,30"/>
+            <path d="M 20,30 Q 22,32 24,30"/>
+          </g>
+        </g>
+      </a>
+
+      <!-- 🌻 SUNFLOWER on her left forearm (viewer's right) → MOODS -->
+      <a href="moods.html">
+        <g class="cari-zone" data-label="label-sunflower">
+          <circle cx="425" cy="525" r="24" fill="transparent"/>
+          <g transform="translate(412, 512)" stroke="#1c1612" stroke-width="1.4" fill="none">
+            <!-- petals -->
+            <ellipse cx="13" cy="4" rx="2" ry="4"/>
+            <ellipse cx="22" cy="6" rx="2" ry="4" transform="rotate(45 22 6)"/>
+            <ellipse cx="24" cy="13" rx="4" ry="2"/>
+            <ellipse cx="22" cy="20" rx="2" ry="4" transform="rotate(-45 22 20)"/>
+            <ellipse cx="13" cy="22" rx="2" ry="4"/>
+            <ellipse cx="4" cy="20" rx="2" ry="4" transform="rotate(45 4 20)"/>
+            <ellipse cx="2" cy="13" rx="4" ry="2"/>
+            <ellipse cx="4" cy="6" rx="2" ry="4" transform="rotate(-45 4 6)"/>
+            <!-- center -->
+            <circle cx="13" cy="13" r="3.5"/>
+            <!-- stem -->
+            <line x1="13" y1="22" x2="13" y2="30"/>
+            <path d="M 13,26 Q 17,25 18,22"/>
+          </g>
+        </g>
+      </a>
+
+      <!-- ⬡ Geometric piece on her right forearm (viewer's left) — decorative only -->
+      <g transform="translate(170, 510)" stroke="#1c1612" stroke-width="1.4" fill="none" opacity="0.85">
+        <polygon points="10,2 18,7 18,16 10,21 2,16 2,7"/>
+        <line x1="10" y1="2" x2="10" y2="21"/>
+        <line x1="2" y1="7" x2="18" y2="16"/>
+        <line x1="18" y1="7" x2="2" y2="16"/>
+      </g>
+
+      <!-- 💗 HEART STICKER on chest → LETTER -->
+      <a href="letter.html">
+        <g class="cari-zone" data-label="label-heart">
+          <!-- sticker shadow -->
+          <ellipse cx="305" cy="430" rx="32" ry="10" fill="#1c1612" opacity="0.18"/>
+          <!-- white sticker backing -->
+          <path d="M 300,455
+                   C 300,455 268,432 268,410
+                   A 16,16 0 0,1 300,398
+                   A 16,16 0 0,1 332,410
+                   C 332,432 300,455 300,455 Z"
+                fill="#fffdf6" stroke="#1c1612" stroke-width="2.5"/>
+          <!-- pink heart on top -->
+          <path d="M 300,448
+                   C 300,448 275,430 275,415
+                   A 12,12 0 0,1 300,407
+                   A 12,12 0 0,1 325,415
+                   C 325,430 300,448 300,448 Z"
+                fill="#ff3d8a" stroke="#1c1612" stroke-width="2"/>
+          <!-- highlight -->
+          <ellipse cx="288" cy="418" rx="4" ry="2" fill="#fff" opacity="0.6" transform="rotate(-30 288 418)"/>
+        </g>
+      </a>
+
+
+      <!-- ============================================
+           ===== HANDS + PIANO (CLICKABLE) =====
+           ============================================ -->
+
+      <a href="soundtrack.html">
+        <g class="cari-zone" data-label="label-piano">
+
+          <!-- left hand on keys -->
+          <ellipse cx="180" cy="595" rx="28" ry="16" fill="#dba47e" stroke="#1c1612" stroke-width="2.5"/>
+          <!-- fingers -->
+          <line x1="170" y1="600" x2="168" y2="615" stroke="#1c1612" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="180" y1="605" x2="180" y2="618" stroke="#1c1612" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="190" y1="600" x2="192" y2="615" stroke="#1c1612" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- right hand on keys -->
+          <ellipse cx="420" cy="595" rx="28" ry="16" fill="#dba47e" stroke="#1c1612" stroke-width="2.5"/>
+          <line x1="410" y1="600" x2="408" y2="615" stroke="#1c1612" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="420" y1="605" x2="420" y2="618" stroke="#1c1612" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="430" y1="600" x2="432" y2="615" stroke="#1c1612" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- piano body -->
+          <rect x="40" y="610" width="520" height="90" fill="#fffdf6" stroke="#1c1612" stroke-width="3"/>
+
+          <!-- white key dividers -->
+          <g stroke="#1c1612" stroke-width="2">
+            <line x1="80" y1="610" x2="80" y2="700"/>
+            <line x1="120" y1="610" x2="120" y2="700"/>
+            <line x1="160" y1="610" x2="160" y2="700"/>
+            <line x1="200" y1="610" x2="200" y2="700"/>
+            <line x1="240" y1="610" x2="240" y2="700"/>
+            <line x1="280" y1="610" x2="280" y2="700"/>
+            <line x1="320" y1="610" x2="320" y2="700"/>
+            <line x1="360" y1="610" x2="360" y2="700"/>
+            <line x1="400" y1="610" x2="400" y2="700"/>
+            <line x1="440" y1="610" x2="440" y2="700"/>
+            <line x1="480" y1="610" x2="480" y2="700"/>
+            <line x1="520" y1="610" x2="520" y2="700"/>
+          </g>
+
+          <!-- black keys -->
+          <g fill="#1c1612">
+            <rect x="68" y="610" width="22" height="55"/>
+            <rect x="108" y="610" width="22" height="55"/>
+            <rect x="188" y="610" width="22" height="55"/>
+            <rect x="228" y="610" width="22" height="55"/>
+            <rect x="268" y="610" width="22" height="55"/>
+            <rect x="348" y="610" width="22" height="55"/>
+            <rect x="388" y="610" width="22" height="55"/>
+            <rect x="468" y="610" width="22" height="55"/>
+            <rect x="508" y="610" width="22" height="55"/>
+          </g>
+
+          <!-- music notes floating -->
+          <g fill="#ff3d8a" stroke="#1c1612" stroke-width="1.5">
+            <circle cx="100" cy="530" r="5"/>
+            <line x1="105" y1="530" x2="105" y2="510" stroke-width="2"/>
+            <circle cx="500" cy="540" r="5"/>
+            <line x1="505" y1="540" x2="505" y2="520" stroke-width="2"/>
+          </g>
+          <g fill="#4d6dff" stroke="#1c1612" stroke-width="1.5">
+            <circle cx="150" cy="500" r="4"/>
+            <line x1="154" y1="500" x2="154" y2="485" stroke-width="2"/>
+          </g>
+
+        </g>
+      </a>
+
+    </svg>
+
+  </div>
+
+  <p class="hero-instructions fade-in" style="animation-delay: 0.8s;">click any tattoo, the piano, or the heart sticker</p>
+
+</main>
+
+<!-- Page background music (upload audio/page-home.mp3 to the audio folder) -->
+<audio id="page-bg-music" loop>
+  <source src="audio/page-home.mp3" type="audio/mpeg">
+</audio>
+<div class="audio-pill" id="audio-pill" title="click to play / pause page music">
+  <span class="note-icon">🎵</span>
+  
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
