@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Mood Board · Marshmallow</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌻%3C/text%3E%3C/svg%3E">
+
+<style>
+.mood-photo{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  border-radius:14px;
+  display:block;
+}
+</style>
+
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-home">♡ MARSHMALLOW</a>
+  <div class="nav-pages">
+    <a href="origin.html">Origin</a>
+    <a href="stats.html">Numbers</a>
+    <a href="moods.html" class="active">Moods</a>
+    <a href="soundtrack.html">Soundtrack</a>
+    <a href="letter.html">Letter</a>
+  </div>
+</nav>
+
+<main class="page-wrap">
+
+  <div class="page-title sun">
+    <span class="pre">part three ·</span>
+    <h1>THE MOOD BOARD</h1>
+    <p class="sub">a field guide to the species <em>Kripa marshmallowus</em></p>
+  </div>
+
+  <div class="mood-grid">
+
+    <div class="mood-card fade-in">
+      <div class="mood-tape"></div>
+      <div class="polaroid">
+        <img src="images/moods/precoffee.jpg" class="mood-photo" alt="Pre Coffee">
+        <span class="caption">Pre-Coffee Marshmallow</span>
+      </div>
+      <p class="handwritten" style="text-align:center; margin-top: 8px; font-size: 1.15rem; color: var(--ink-soft);">"approach with snacks. speak softly. do not make sudden movements."</p>
+    </div>
+
+    <div class="mood-card fade-in">
+      <div class="mood-tape"></div>
+      <div class="polaroid">
+        <img src="images/moods/postgym.jpg" class="mood-photo" alt="Post Gym">
+        <span class="caption">Post-Workout Marshmallow</span>
+      </div>
+      <p class="handwritten" style="text-align:center; margin-top: 8px; font-size: 1.15rem; color: var(--ink-soft);">invincible. emotionally radiant. capable of overthrowing small governments.</p>
+    </div>
+
+    <div class="mood-card fade-in">
+      <div class="mood-tape"></div>
+      <div class="polaroid">
+        <img src="images/moods/piano.jpg" class="mood-photo" alt="Piano">
+        <span class="caption">ABBA Marshmallow</span>
+      </div>
+      <p class="handwritten" style="text-align:center; margin-top: 8px; font-size: 1.15rem; color: var(--ink-soft);">eyes closed. soul ascending. dancing queen, age 16 forever.</p>
+    </div>
+
+    <div class="mood-card fade-in">
+      <div class="mood-tape"></div>
+      <div class="polaroid">
+        <img src="images/moods/travel.jpg" class="mood-photo" alt="Travel">
+        <span class="caption">Travel Marshmallow</span>
+      </div>
+      <p class="handwritten" style="text-align:center; margin-top: 8px; font-size: 1.15rem; color: var(--ink-soft);">three countries planned. four backup plans. will return with a tan and possibly a tattoo.</p>
+    </div>
+
+    <div class="mood-card fade-in">
+      <div class="mood-tape"></div>
+      <div class="polaroid">
+        <img src="images/moods/wedding.jpg" class="mood-photo" alt="Wedding">
+        <span class="caption">CEO Marshmallow</span>
+      </div>
+      <p class="handwritten" style="text-align:center; margin-top: 8px; font-size: 1.15rem; color: var(--ink-soft);">the overachiever. the all smart. do <em>not</em> ask silly questions.</p>
+    </div>
+
+    <div class="mood-card fade-in">
+      <div class="mood-tape"></div>
+      <div class="polaroid">
+        <img src="images/moods/hangry.jpg" class="mood-photo" alt="Hangry">
+        <span class="caption">Hungry Marshmallow</span>
+      </div>
+      <p class="handwritten" style="text-align:center; margin-top: 8px; font-size: 1.15rem; color: var(--ink-soft);">DEFCON 2. find food. this is not a drill. the chaat menu is non-negotiable.</p>
+    </div>
+
+    <div class="mood-card fade-in">
+      <div class="mood-tape"></div>
+      <div class="polaroid">
+        <img src="images/moods/sleepy.jpg" class="mood-photo" alt="Sleepy">
+        <span class="caption">Sleepy Marshmallow</span>
+      </div>
+      <p class="handwritten" style="text-align:center; margin-top: 8px; font-size: 1.15rem; color: var(--ink-soft);">100% certified marshmallow texture: soft, slow, possibly dreaming about food.</p>
+    </div>
+
+    <div class="mood-card fade-in">
+      <div class="mood-tape"></div>
+      <div class="polaroid">
+        <img src="images/moods/itoldyouso.jpg" class="mood-photo" alt="I Told You So">
+        <span class="caption">"I Told You So" Marshmallow</span>
+      </div>
+      <p class="handwritten" style="text-align:center; margin-top: 8px; font-size: 1.15rem; color: var(--ink-soft);">look. just admit she was right. we all knew. she knew before we knew.</p>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 4rem;">
+    <a href="soundtrack.html" class="btn-chunky mint">next: the soundtrack →</a>
+  </div>
+
+</main>
+
+<!-- Page background music (upload audio/page-moods.mp3 to the audio folder) -->
+<audio id="page-bg-music" loop>
+  <source src="audio/page-moods.mp3" type="audio/mpeg">
+</audio>
+<div class="audio-pill" id="audio-pill" title="click to play / pause page music">
+  <span class="note-icon">🎵</span>
+  
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
