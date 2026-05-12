@@ -584,6 +584,7 @@ a { color: inherit; }
   position: absolute;
   width: 130px;
   z-index: 4;
+   top: 20%;
 }
 .hero-polaroid:nth-child(1) { top: 30%; left: 18%; transform: rotate(-9deg); }
 .hero-polaroid:nth-child(2) { top: 28%; right: 18%; transform: rotate(7deg); }
